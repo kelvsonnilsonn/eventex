@@ -7,4 +7,6 @@ public class AppConstants {
     public static final String EVENT_PATH = "/api/v1/event";
     public static final String CHANGE_EVENT_NAME = "/change-name";
     public static final String CHANGE_DESCRIPTION_NAME = "/change-description";
+
+    public static final String NOT_NULL_MESSAGE = " não pode ser nulo.";
 }
