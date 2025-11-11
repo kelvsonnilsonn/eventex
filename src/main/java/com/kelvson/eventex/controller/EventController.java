@@ -51,7 +51,7 @@ public class EventController {
             return ResponseEntity.ok(eventQueryService.findEvent(eventId));
         }
         if(eventName != null){
-            return ResponseEntity.ok(eventQueryService.findEventByName(eventName));
+            return ResponseEntity.ok(eventQueryService.findEventByName(pageable, eventName));
         }
         return ResponseEntity.ok(eventQueryService.findAll(pageable));
     }
