@@ -23,8 +23,9 @@ public class EventQueryService {
         return eventMapper.toResponse(eventRepository.findById(id).orElseThrow(EventNotFoundException::new));
     }
 
-    public EventResponseDTO findEventByName(String eventName){
-        return eventMapper.toResponse(eventRepository.findByEventName(eventName).orElseThrow(EventNotFoundException::new));
+    public PageResponseDTO<EventResponseDTO> findEventByName(Pageable pageable, String eventName){
+        Page<EventResponseDTO> events = eventRepository.findByEventName(pageable, eventName).map(eventMapper::toResponse);
+        return PageResponseDTO.fromPage(events);
     }
 
     public PageResponseDTO<EventResponseDTO> findAll(Pageable pageable){
